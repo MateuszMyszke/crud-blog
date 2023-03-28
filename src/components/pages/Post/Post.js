@@ -7,8 +7,8 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 const Post = () => {
-  const { postId } = useParams();
-  const postData = useSelector(state => getPostById(state, postId));
+  const { id } = useParams();
+  const postData = useSelector(state => getPostById(state, id));
 
   const [showModal, setShowModal] = useState(false);
 
@@ -30,7 +30,7 @@ const Post = () => {
           <Card border='light'>
             <Card.Body>
             <Col className='d-flex justify-content-end align-items-center mx-1'>
-              <Button className='mx-1' variant='outline-info' as={NavLink} to={'/post/edit/' + postId}>
+              <Button className='mx-1' variant='outline-info' as={NavLink} to={'/post/edit/' + id}>
                 Edit
               </Button>
               <Button variant='outline-danger' onClick={handleShow}>Delete</Button>
