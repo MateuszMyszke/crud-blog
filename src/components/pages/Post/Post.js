@@ -39,7 +39,7 @@ const Post = () => {
               <Card.Text>
                 <b>Author:</b>{postData.author}<br />
                 <b>Published:</b>{postData.publishedDate}<br /> <br />
-                {postData.content}
+                <p dangerouslySetInnerHTML={{ __html: postData.content }} />
               </Card.Text>
             </Card.Body>
           </Card>
