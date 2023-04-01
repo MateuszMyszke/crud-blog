@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useForm } from 'react-hook-form';
 
 
 
@@ -13,19 +14,26 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
+  
+  const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
   const handleSubmit = e => {
-    e.preventDefault();
     action({ title, shortDescription, content, publishedDate, author});
   }
 
   return(
-    <Form onSubmit={handleSubmit}> 
+    <Form onSubmit={validate(handleSubmit)}> 
 
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Title </Form.Label>
-        <Form.Control  placeholder='Enter title' value={title} onChange={e => setTitle(e.target.value)} />
-      </Form.Group> 
+     <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          {...register("title", { required: true })}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          type="text" placeholder="Enter title"
+        />
+        {errors.title && <span>This field is required</span>}  
+      </Form.Group>
 
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Author </Form.Label>
