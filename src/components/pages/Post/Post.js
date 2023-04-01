@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { dateToStr } from '../../../untils/dateToStr';
 
 const Post = () => {
   const { id } = useParams();
@@ -38,7 +39,7 @@ const Post = () => {
               <Card.Title>{postData.title}</Card.Title>
               <Card.Text>
                 <b>Author:</b>{postData.author}<br />
-                <b>Published:</b>{postData.publishedDate}<br /> <br />
+                <b>Published:</b>{dateToStr(postData.publishedDate)}<br /> <br />
                 <p dangerouslySetInnerHTML={{ __html: postData.content }} />
               </Card.Text>
             </Card.Body>
