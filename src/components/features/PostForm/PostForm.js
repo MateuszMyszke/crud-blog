@@ -38,6 +38,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           onChange={e => setTitle(e.target.value)}
           type="text"
           placeholder="Enter title"
+          name='title'
         />
         {errors.title && 
           <small className='d-block form-text text-danger mt-2'>
