@@ -9,8 +9,9 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand href='/'>Blog.app</Navbar.Brand>
           <Nav>
-            <Nav.Link as={NavLink}  to='/'>Home</Nav.Link>
+            <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
             <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
+            <Nav.Link as={NavLink} to='/categories'>Categories</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

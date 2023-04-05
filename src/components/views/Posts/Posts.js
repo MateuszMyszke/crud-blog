@@ -16,9 +16,10 @@ const Posts = () => {
             <Card.Body>
               <Card.Title>{post.title}</Card.Title>
               <Card.Text>
-                <b>Author:</b>{post.author}<br />
-                <b>Published:</b>{dateToStr(post.publishedDate)}<br /><br />
-                {post.shortDescription}
+                <b>Author: </b>{post.author}<br />
+                <b>Published: </b>{dateToStr(post.publishedDate)}<br />
+                <b>Category: </b>{post.category}<br /> <br />
+                {post.shortDescription}               
               </Card.Text>
               <Button variant="primary" as={NavLink} to={'/post/' + post.id}>Read more</Button>
             </Card.Body>

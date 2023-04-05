@@ -38,8 +38,9 @@ const Post = () => {
             </Col>
               <Card.Title>{postData.title}</Card.Title>
               <Card.Text>
-                <b>Author:</b>{postData.author}<br />
-                <b>Published:</b>{dateToStr(postData.publishedDate)}<br /> <br />
+                <b>Author: </b>{postData.author}<br />
+                <b>Published: </b>{dateToStr(postData.publishedDate)}<br /> 
+                <b>Category: </b>{postData.category}
                 <p dangerouslySetInnerHTML={{ __html: postData.content }} />
               </Card.Text>
             </Card.Body>
